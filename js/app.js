@@ -17,14 +17,26 @@
  * Define Global Variables
  * 
 */
-
+let sections = [];
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
+function getSections(sections) {
+    const sectionString = "section"
+    let sectionId = sectionString;
+    let elem = null;
 
+    let i = 1;
+    do {
+        const elemId = sectionId.concat(i);
+        elem = document.getElementById(elemId);
+        if (elem != null) sections.push(elem);
+        i = i + 1;
+    } while (elem != null)
+}
 
 
 /**
@@ -34,19 +46,36 @@
 */
 
 // build the nav
-
+function buildNav() {
+    // for each section
+        // create a new <li> element with innerHTML data-nav
+        const newSpan = document.createElement('li');
+        // select the navbar__list
+        const mainHeading = document.querySelector('h1');
+        // add the the <li> element as the last child element of navbar__list
+        mainHeading.appendChild(newSpan);
+}
 
 // Add class 'active' to section when near top of viewport
+function setActive() {
+    // determine the top of the viewport
+    // find which section is within or closest to the top of the viewport
 
+}
 
-// Scroll to anchor ID using scrollTO event
-
+// Scroll to anchor ID using scrollTo event
+function scrollTo() {
+    // scroll to anchor id on click
+}
 
 /**
  * End Main Functions
  * Begin Events
  * 
 */
+
+getSections(sections);
+for (const section of sections) console.log(section.id);
 
 // Build menu 
 
