@@ -47,13 +47,17 @@ function getSections(sections) {
 
 // build the nav
 function buildNav() {
+    // select the navbar__list
+    const nav = document.querySelector('#navbar__list');
     // for each section
+    for (const section of sections) {
         // create a new <li> element with innerHTML data-nav
-        const newSpan = document.createElement('li');
-        // select the navbar__list
-        const mainHeading = document.querySelector('h1');
+        const newSection = document.createElement('li');
+        newSection.textContent = section.id;
+        newSection.classList.add('menu__link');
         // add the the <li> element as the last child element of navbar__list
-        mainHeading.appendChild(newSpan);
+        nav.appendChild(newSection);
+    }
 }
 
 // Add class 'active' to section when near top of viewport
@@ -76,6 +80,7 @@ function scrollTo() {
 
 getSections(sections);
 for (const section of sections) console.log(section.id);
+buildNav();
 
 // Build menu 
 
