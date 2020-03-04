@@ -48,12 +48,12 @@ function getSections(sections) {
 // build the nav
 function buildNav() {
     // select the navbar__list
-    const nav = document.querySelector('#navbar__list');
+    const nav = document.querySelector("#navbar__list");
     // for each section
     for (const section of sections) {
         // create a new <li> element with innerHTML data-nav
         const newSection = document.createElement('li');
-        newSection.textContent = section.id;
+        newSection.textContent = section.getAttribute("data-nav");
         newSection.classList.add('menu__link');
         // add the the <li> element as the last child element of navbar__list
         nav.appendChild(newSection);
