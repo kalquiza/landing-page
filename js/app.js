@@ -59,6 +59,7 @@ function buildNav() {
         const newSection = document.createElement('li');
         newSection.textContent = section.getAttribute("data-nav");
         newSection.classList.add('menu__link');
+        newSection.id = section.id.concat("-menulink");
         // add the the <li> element as the last child element of navbar__list
         nav.appendChild(newSection);
     }
@@ -88,10 +89,6 @@ function setActive() {
     active.classList.add("your-active-class");
 }
 
-// Scroll to anchor ID using scrollTo event
-function scrollTo() {
-    // scroll to anchor id on click
-}
 
 /**
  * End Main Functions
@@ -107,5 +104,18 @@ setActive();
 // Build menu 
 
 // Scroll to section on link click
+for (const section of sections) {
+    const menulink = document.querySelector(`#${section.id}-menulink`);
 
+    menulink.addEventListener('click', function scrollToSection() {
+        // get section id
+        const menulinkId = menulink.id;
+        const sectionId = menulinkId.slice(0, menulinkId.indexOf('-'));
+
+        // determine vertical scroll position
+        const yPos = document.querySelector(`#${sectionId}`).getBoundingClientRect().top;
+        const yOffset = window.pageYOffset;
+        window.scrollTo(0, pageYOffset + yPos);
+    })
+}
 // Set sections as active
