@@ -38,6 +38,10 @@ function getSections(sections) {
     } while (elem != null)
 }
 
+// determine if the element is in the viewport
+function inView(element) {
+    console.log(element.getBoundingClientRect());
+}
 
 /**
  * End Helper Functions
@@ -62,9 +66,26 @@ function buildNav() {
 
 // Add class 'active' to section when near top of viewport
 function setActive() {
-    // determine the top of the viewport
-    // find which section is within or closest to the top of the viewport
+    let active = null;
+        // determine the bottom of the viewport
+    let viewportBottom = document.documentElement.clientHeight;
+    for (const section of sections) {
+        let landingContainer = section.firstElementChild;
+        landingContainerTop = landingContainer.getBoundingClientRect().top;
+        landingContainerBottom = landingContainer.getBoundingClientRect().bottom;
 
+        // Determine active viewport
+        if (
+            // container is fully in the viewport
+            (landingContainerTop > -1 && landingContainerBottom < viewportBottom) ||
+            // container is clipped at the top of the viewport
+            (landingContainerTop < 0 && landingContainerBottom < viewportBottom) ||
+            // container is clipped at the bottom of the view port
+            (landingContainerTop > -1 && landingContainerBottom > viewportBottom && landingContainerTop < viewportBottom)) {
+            active = section;
+        }
+    }
+    active.classList.add("your-active-class");
 }
 
 // Scroll to anchor ID using scrollTo event
@@ -81,11 +102,10 @@ function scrollTo() {
 getSections(sections);
 for (const section of sections) console.log(section.id);
 buildNav();
+setActive();
 
 // Build menu 
 
 // Scroll to section on link click
 
 // Set sections as active
-
-
