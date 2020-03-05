@@ -86,7 +86,7 @@ function setActive() {
             active = section;
         }
     }
-    active.classList.add("your-active-class");
+    if (active != null) active.classList.add("your-active-class");
 }
 
 
