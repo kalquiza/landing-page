@@ -62,15 +62,20 @@ function buildNav() {
 
 // Add class 'active' to section when near top of viewport
 function setActive() {
-        // determine the bottom of the viewport
-    let viewportBottom = document.documentElement.clientHeight;
+    // determine the height of the viewport and navbar
+    const viewportHeight = document.documentElement.clientHeight;
+    const navbarHeight = document.querySelector(".navbar__menu").getBoundingClientRect().height;
+
     for (const section of sections) {
-        let landingContainer = section.firstElementChild;
-        landingContainerTop = landingContainer.getBoundingClientRect().top;
-        landingContainerBottom = landingContainer.getBoundingClientRect().bottom;
+        sectionContainerTop = section.getBoundingClientRect().top;
+        sectionContainerHeight = section.getBoundingClientRect().height;
+        console.log(viewportHeight);
 
         // Determine active viewport
-        if (landingContainerTop > -1 && landingContainerBottom < viewportBottom) {
+        if (
+            sectionContainerTop + sectionContainerHeight > navbarHeight + (viewportHeight-navbarHeight)/2
+            && sectionContainerTop < navbarHeight + (viewportHeight-navbarHeight)/2)
+        {
             section.classList.add("your-active-class");
         } else {
             section.classList.remove("your-active-class");
@@ -88,6 +93,8 @@ function setActive() {
 getSections();
 // Build menu 
 buildNav();
+// Determine initial active section
+setActive();
 
 // Add event listeners
 
