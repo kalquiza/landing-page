@@ -24,7 +24,7 @@ let sections = [];
  * Start Helper Functions
  * 
 */
-function getSections(sections) {
+function getSections() {
     const sectionString = "section"
     let sectionId = sectionString;
     let elem = null;
@@ -36,11 +36,6 @@ function getSections(sections) {
         if (elem != null) sections.push(elem);
         i = i + 1;
     } while (elem != null)
-}
-
-// determine if the element is in the viewport
-function inView(element) {
-    console.log(element.getBoundingClientRect());
 }
 
 /**
@@ -83,18 +78,18 @@ function setActive() {
     }
 }
 
-
 /**
  * End Main Functions
  * Begin Events
  * 
 */
 
-getSections(sections);
-for (const section of sections) console.log(section.id);
+// Get sections
+getSections();
+// Build menu 
 buildNav();
 
-// Build menu 
+// Add event listeners
 
 // Scroll to section on link click
 for (const section of sections) {
