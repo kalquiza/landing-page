@@ -108,7 +108,7 @@ for (const section of sections) {
         // determine vertical scroll position
         const yPos = document.querySelector(`#${sectionId}`).getBoundingClientRect().top;
         const yOffset = window.pageYOffset;
-        window.scrollTo(0, pageYOffset + yPos);
+        window.scrollTo(0, pageYOffset + yPos - document.querySelector(".navbar__menu").getBoundingClientRect().height);
     })
 }
 
