@@ -10,4 +10,4 @@ The primary behavior of the landing page is as follows:
 * Sections have a highlighted active state
 * Navigation links scroll to their corresponding section
 
-Most of the app's functionality is built out in `js/app.js` which works in conjunction with our `index.html` and styles in `css/styles.css`.
+Most of the app's functionality is built out in `js/app.js` which works together with our `index.html` and styles in `css/styles.css`.
