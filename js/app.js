@@ -42,17 +42,18 @@ function getSections() {
  * 
 */
 
-// build the nav
+// Build the navigation bar
 function buildNav() {
     // select the navbar__list
     const nav = document.querySelector("#navbar__list");
     // for each section
     for (const section of sections) {
-        // create a new <li> element with innerHTML data-nav
+        // build a new <li> element with appropriate innerHTML and styled class
         const newSection = document.createElement('li');
         newSection.textContent = section.getAttribute("data-nav");
         newSection.classList.add('menu__link');
-        newSection.id = section.id.concat("-menulink");
+
+        newSection.id = `${section.id}-menulink`;
         // add the the <li> element as the last child element of navbar__list
         nav.appendChild(newSection);
     }
