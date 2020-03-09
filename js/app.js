@@ -61,19 +61,20 @@ function buildNav() {
 
 // Add class 'active' to section when near top of viewport
 function setActive() {
-    // determine the height of the viewport and navbar
+    // get the height of the viewport and navbar
     const viewportHeight = document.documentElement.clientHeight;
     const navbarHeight = document.querySelector(".navbar__menu").getBoundingClientRect().height;
 
     for (const section of sections) {
+        // get the top boundary and height of the section
         sectionContainerTop = section.getBoundingClientRect().top;
         sectionContainerHeight = section.getBoundingClientRect().height;
-        console.log(viewportHeight);
 
-        // Determine active viewport
+        // determine active viewport and set or remove the active class
         if (
             sectionContainerTop + sectionContainerHeight > navbarHeight + (viewportHeight-navbarHeight)/2
-            && sectionContainerTop < navbarHeight + (viewportHeight-navbarHeight)/2)
+            && sectionContainerTop < navbarHeight + (viewportHeight-navbarHeight)/2
+            )
         {
             section.classList.add("your-active-class");
         } else {
