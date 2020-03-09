@@ -1,13 +1,13 @@
-# Landing Page Project
+# Dynamic Multi-Section Landing Page
 
-## Table of Contents
+## Project Description
 
-* [Instructions](#instructions)
+Often times, you won't know how much content a page will hold or how much will be added later through a CMS or API. To handle this, we can build out our page content dynamically. In this project, we use JavaScript and manipulation of the DOM to enhance usability and add functionality to an otherwise static webpage.
 
-## Instructions
+The primary behavior of the landing page is as follows:
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* Navigation is built dynamically as an unordered list.
+* Sections have a highlighted active state
+* Navigation links scroll to their corresponding section
 
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+Most of the app's functionality is built out in `js/app.js` which works in conjunction with our `index.html` and styles in `css/styles.css`.
