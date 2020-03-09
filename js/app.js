@@ -96,11 +96,14 @@ buildNav();
 // Determine initial active section
 setActive();
 
-// Add event listeners
-
-// Scroll to section on link click
+/**
+ * Add Event Listeners
+ * 
+*/
+// Scroll to section on menu link click
 for (const section of sections) {
     const menulink = document.querySelector(`#${section.id}-menulink`);
+    const navbarHeight = document.querySelector(".navbar__menu").getBoundingClientRect().height;
 
     menulink.addEventListener('click', function scrollToSection() {
         // get section id
@@ -110,11 +113,11 @@ for (const section of sections) {
         // determine vertical scroll position
         const yPos = document.querySelector(`#${sectionId}`).getBoundingClientRect().top;
         const yOffset = window.pageYOffset;
-        window.scrollTo(0, pageYOffset + yPos - document.querySelector(".navbar__menu").getBoundingClientRect().height);
+        window.scrollTo(0, pageYOffset + yPos - navbarHeight);
     })
 }
 
-// Set sections as active
+// Set active section on scroll
 window.addEventListener('scroll', function() {
     setActive();
 })
