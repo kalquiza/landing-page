@@ -24,17 +24,15 @@ let sections = [];
  * Start Helper Functions
  * 
 */
-function getSections() {
-    const sectionString = "section"
-    let sectionId = sectionString;
-    let elem = null;
 
+// Get the page sections and store them in the sections array 
+function getSections() {
+    let elem = {};
     let i = 1;
     do {
-        const elemId = sectionId.concat(i);
-        elem = document.getElementById(elemId);
+        elem = document.getElementById(`section${i}`);
         if (elem != null) sections.push(elem);
-        i = i + 1;
+        i++;
     } while (elem != null)
 }
 
