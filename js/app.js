@@ -18,27 +18,10 @@
  * Define Global Variables
  *
 */
-const sections = [];
+const sections = document.getElementsByTagName('section');
 
 /**
  * End Global Variables
- * Start Helper Functions
- *
-*/
-
-// Get the page sections and store them in the sections array
-const getSections = () => {
-  let elem = {};
-  let i = 1;
-  do {
-    elem = document.getElementById(`section${i}`);
-    if (elem != null) sections.push(elem);
-    i++;
-  } while (elem != null)
-}
-
-/**
- * End Helper Functions
  * Begin Main Functions
  *
 */
@@ -89,8 +72,6 @@ const setActive = () => {
  *
 */
 
-// Get sections
-getSections();
 // Build menu
 buildNav();
 // Determine initial active section
