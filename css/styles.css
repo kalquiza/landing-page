@@ -33,6 +33,24 @@ h1 {
     }
 }
 
+@media only screen and (max-width: 35em){
+    #navbar__list {
+        font-size: .8em;
+    }
+
+    h1 {
+        font-size: 4em;
+    } 
+
+    h2 {
+        font-size: 3em;
+    } 
+
+    p {
+        font-size: .8em;
+    }
+}
+
 h2 {
     border-bottom: 1px solid #cc1;
     font-family: 'Oxygen', Sans-Serif;
@@ -120,6 +138,12 @@ section {
     .landing__container {
         max-width: 50em;
         padding: 4em;
+    }
+}
+
+@media (max-width: 35em){
+    #navbar__list {
+        display: flex;
     }
 }
 
