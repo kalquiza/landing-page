@@ -54,14 +54,19 @@ const setActive = () => {
     const sectionContainerTop = section.getBoundingClientRect().top;
     const sectionContainerHeight = section.getBoundingClientRect().height;
 
+    // get the corresponding nav menu link
+    const navMenuLink = document.querySelector(`#${section.id}-menulink`);
+
     // determine active viewport and set or remove the active class
     if (
       sectionContainerTop + sectionContainerHeight > navbarHeight + (viewportHeight - navbarHeight) / 2 &&
             sectionContainerTop < navbarHeight + (viewportHeight - navbarHeight) / 2
     ) {
       section.classList.add('your-active-class');
+      navMenuLink.classList.add('your-active-class');
     } else {
       section.classList.remove('your-active-class');
+      navMenuLink.classList.remove('your-active-class');
     }
   }
 }
